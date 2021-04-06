@@ -3,13 +3,21 @@
 # Technologies used to develop the services:
 
 Java8
+
 Springboot
+
 Spring security
+
 Spring Data JPA and Hibernate
+
 Restful web services
+
 H2 Database
+
 Maven
+
 Swagger API Documentation
+
 IDE (STS)
 
 How run in any IDE for ex: Eclipse, STS or IntelliJ
