@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Employee Storage Service</title>
+</head>
+<body bgcolor="Lightskyblue">
+<h3>Employee Storage Services</h3>
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+<form th:action="@{/login}" method="post">
+<fieldset>  
+      <legend>User Information:</legend>  
+    <table>
+        <tr>
+            <td>
+                Admin username :
+            </td>
+            <td>
+                <input type="text" name="username"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password :
+            </td>
+            <td>
+                <input type="password" name="password"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Sign In</button>
+            </td>
+        </tr>
+    </table>
+    </fieldset>
+</form>
+<h4><a href="/register">Register Admin For Company</a></h4>
+</body>
+</html>

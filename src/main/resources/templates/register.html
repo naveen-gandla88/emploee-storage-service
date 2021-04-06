@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Employee Storage Service</title>
+<script type="text/javascript">
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var errorMessageElement = document.getElementById("errorMessage");
+            var password = document.getElementById("password").value;
+            var passwordAgain = document.getElementById("passwordAgain").value;
+            var error = "";
+            error += !username ? "The 'username' field should be filled.<br>" : "";
+            error += !password? "The 'password' field should be filled.<br>": "";
+            error += !passwordAgain ? "The 'password again' field should be filled.<br>": "";
+            error +=  password !== passwordAgain? "Your 'password' and 'confirmation password' do not match.<br>": "";
+            if(error) {
+                errorMessageElement.innerHTML = error + " Please change and try again";
+                return false;
+            } else {
+                return true;
+            }
+        }
+        //]]>
+    </script>
+</head>
+<body bgcolor="Lightskyblue">
+	<h3>Employee Storage Service</h3>
+	<form th:action="@{/register}" th:object="${adminEntity}" method="post"
+		onsubmit="return validateForm()">
+		<table>
+			<tr>
+				<td>Admin UserName* :</td>
+				<td><input type="text" th:field="*{username}" /></td>
+			</tr>
+			<tr>
+				<td>Password* :</td>
+				<td><input type="password" th:field="*{password}" /></td>
+			</tr>
+			<tr>
+				<td>Password again* :</td>
+				<td><input type="password" id="passwordAgain" /></td>
+			</tr>
+			<tr>
+				<td>
+					<button type="submit">Register</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+
+	<p id="errorMessage">
+		<span th:text="${error}"></span>
+	</p>
+</body>
+</html>
